@@ -44,4 +44,28 @@ export const votePost = (id, option) => {
   .then(data => data.json())
 }
 
+// POST /posts
+export const addNewPost = (newPost) => {
+  return fetch(`${api}/posts`, { 
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newPost)
+  })
+  .then(data => data.json())
+}
 
+// PUT /posts/:id
+export const editPost = (id, post) => {
+  return fetch(`${api}/posts/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(post)
+  })
+  .then(data => data.json())
+}

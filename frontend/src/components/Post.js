@@ -16,7 +16,6 @@ class Post extends Component {
 
 	render() {
     const {post} = this.props
-    console.log(post)
 		return(
 				<div className="page-container">
 						<PostSummary post={post}/>

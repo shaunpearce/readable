@@ -1,17 +1,13 @@
-import { getPost, getAllPosts, getComments, votePost,} from '../utils/ReadableAPI'
+import { getPost, getAllPosts, getComments, votePost, addNewPost, editPost} from '../utils/ReadableAPI'
 
 const GET_POSTS = 'GET_POSTS'
 const VOTE_POST = 'VOTE_POST'
 const GET_POST = 'GET_POST'
+const ADD_NEW_POST = 'ADD_NEW_POST'
+const EDIT_POST = 'EDIT_POST'
 
 export const fetchPosts = () => dispatch => (
     getAllPosts()
-        // .then(posts => {
-        //     dispatch({
-        //         type: GET_POSTS,
-        //         posts: posts,
-        //     })  
-        // })
         ///Have to dispatch on each post to get comments as need post id for comments call (No all comments api call available)
         .then(posts => {
           posts.map(post => {
@@ -29,13 +25,6 @@ export const fetchPosts = () => dispatch => (
 
 export const fetchPost = (id) => dispatch => (
   getPost(id)
-    // .then(post => {
-    //   dispatch({
-    //       type: GET_POST,
-    //       post,
-    //       id: id
-    //   })
-    // })
     .then(post => {
       getComments(post.id)
         .then(comments => {
@@ -52,7 +41,6 @@ export const fetchPost = (id) => dispatch => (
 export const upVotePostAction = (id) => dispatch => (
     votePost(id, "upVote")
       .then((post) => {
-        console.log(id)
         dispatch({
           type: VOTE_POST,
           voteScore: post.voteScore,
@@ -68,6 +56,27 @@ export const upVotePostAction = (id) => dispatch => (
           type: VOTE_POST,
           voteScore: post.voteScore,
           id: id
+        })
+      })
+  )
+
+  export const addNewPostAction = (post) => dispatch => (
+    addNewPost(post)
+      .then(post => {
+        dispatch({
+          type: ADD_NEW_POST,
+          post
+        })
+      })
+  )
+
+  export const editPostAction = (id, post) => dispatch => (
+    editPost(id, post)
+      .then((post) => {
+        dispatch({
+          type: EDIT_POST,
+          id, 
+          post
         })
       })
   )

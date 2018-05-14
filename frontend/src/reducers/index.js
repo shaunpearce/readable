@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 
 const initialState = {
     
@@ -12,30 +13,13 @@ const posts = (state = initialState, action) => {
   switch(action.type) {
 
     case 'GET_POSTS':
-    
-      //RECHECK: Use reducer?
-      // const posts = action.posts.reduce((array, post) => {
-      //   array[post.id] = {
-      //     ...post,
-      //     comments: []
-      //   }
-      //   return array
-      // },{})
-
-      // return {
-      //     ...state, 
-      //     ...posts,
-      // }
-
-      // const commentsArray = action.comments.map
-      // console.log(commentsArray)
-
-        commentsArray = action.comments.reduce((array, comment) => {
+        //RECHECK: Short hand maye within return
+      commentsArray = action.comments.reduce((array, comment) => {
           array[comment.id] = {
             ...comment
           }
           return array
-        },{})
+      },{})
 
       return{
         ...state,
@@ -71,6 +55,24 @@ const posts = (state = initialState, action) => {
         }
       }
 
+    case 'ADD_NEW_POST':
+      return {
+        ...state,
+        //posts: [...state.posts, action.post]
+        [action.post.id]:{
+          ...action.post,
+          comments: []
+        }
+      }
+
+    case 'EDIT_POST':
+      return {
+        ...state,
+        [action.post.id]:{
+          ...action.post
+        }
+      }
+
     default:
       return state
   }
@@ -79,4 +81,5 @@ const posts = (state = initialState, action) => {
 
 export default combineReducers({
     posts,
+    form: formReducer,
 })

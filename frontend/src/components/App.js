@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Posts from './Posts'
 import Post from './Post'
+import AddPost from './AddPost'
+import EditPost from './EditPost'
 import '../App.css'
 
 class App extends Component {
@@ -37,6 +39,8 @@ class App extends Component {
       <div className="App">
             <Switch>
               <Route exact path ='/' component={Posts} />
+              <Route exact path ='/add-post' component={AddPost} />
+              <Route exact path ='/edit-post/:id' component={EditPost} />
               <Route exact path ='/:category/:id' component={Post} />
             </Switch>
       </div>

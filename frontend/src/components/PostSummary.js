@@ -34,6 +34,7 @@ class PostSummary extends Component {
               <div className="post-vote-down-control" onClick={() => this.onClickDownVote(post.id)}>-</div>
             </div>
             <Link to={`/${post.category}/${post.id}`}>Go</Link>  
+            <Link to={`/edit-post/${post.id}`}>Edit</Link>  
         </div>
     )    
   }
