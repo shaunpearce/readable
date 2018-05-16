@@ -69,3 +69,44 @@ export const editPost = (id, post) => {
   })
   .then(data => data.json())
 }
+
+// POST /comments
+export const addNewComment = (newComment) => {
+  return fetch(`${api}/comments`, { 
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newComment)
+  })
+  .then(data => data.json())
+}
+
+// PUT /comments/:id
+export const editComment = (id, comment) => {
+  return fetch(`${api}/comments/${id}`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(comment)
+  })
+  .then(data => data.json())
+}
+
+// POST /comments/:id
+export const voteComment = (id, option) => {
+  return fetch(`${api}/comments/${id}`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      option: option
+    })
+  })
+  .then(data => data.json())
+}

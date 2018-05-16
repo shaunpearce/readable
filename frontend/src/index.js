@@ -11,7 +11,7 @@ import { createLogger } from 'redux-logger'
 import reducer from './reducers/index'
 //import './index.css'
 
-import App from './components/App';
+import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 const middleware = applyMiddleware(thunk, createLogger())

@@ -1,43 +1,71 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPost } from '../actions'
-import PostSummary from './PostSummary'
+import { Link } from 'react-router-dom'
+import { upVotePostAction, downVotePostAction } from '../actions'
+import Comment from './Comment'
+import AddComment from './AddComment'
 
 class Post extends Component {
 
-	state = {
-
-  }
-  
-  componentDidMount() {
-    const { id } = this.props.match.params
-    this.props.getPost(id)
+  onClickUpVote = (id) => {
+    this.props.upVote(id)
   }
 
-	render() {
-    const {post} = this.props
-		return(
-				<div className="page-container">
-						<PostSummary post={post}/>
-				</div>
-		)    
-	}
+  onClickDownVote = (id) => {
+    this.props.downVote(id)
+  }
+
+  render() {
+    
+    const { post, postSummary } = this.props
+    const comments = post.comments && Object.values(post.comments)
+    console.log(postSummary)
+
+    return(
+        <div className="post-container">
+            <div className="post-title">{post.title}</div>
+            <div className="post-author">{post.author}</div>
+            {post.comments ? 
+                <div className="post-comments-meta">{comments.length} {comments.length == 1 ? "Comment": "Comments" }</div>:
+                <div className="post-comments-meta">0 Comments</div>
+            }
+            <div className="post-vote-container votes-container">
+              <div className="vote-up-control" onClick={() => this.onClickUpVote(post.id)}>+</div>
+              <div className="vote-score">{post.voteScore}</div>
+              <div className="vote-down-control" onClick={() => this.onClickDownVote(post.id)}>-</div>
+            </div>
+            
+            {postSummary && 
+              <Link to={`/${post.category}/${post.id}`}>Go</Link> 
+            }
+
+            <Link to={`/edit-post/${post.id}`}>Edit</Link> 
+
+            {!postSummary && comments &&
+              comments.map( (comment, index) => {
+                return <Comment key={index} comment={comment}/>
+              })
+            }
+
+            {!postSummary && 
+              <AddComment parentId={post.id} />
+            }
+            
+        </div>
+    )    
+  }
 }
 
-const mapStateToProps = ({ posts }, ownProps) => {
-  //RECHECK: Is it crazy?
-  const { id } = ownProps.match.params
-  return {
-    post: {
-      ...posts[id]
-    }
-  }
-}
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPost: (id) => dispatch(fetchPost(id)),
+    upVote: (id) => dispatch(upVotePostAction(id)),
+    downVote: (id) => dispatch(downVotePostAction(id)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+Post.defaultProps = {
+  postSummary: false,
+}
+
+export default connect(null, mapDispatchToProps)(Post)

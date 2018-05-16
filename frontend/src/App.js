@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Posts from './Posts'
-import Post from './Post'
-import AddPost from './AddPost'
-import EditPost from './EditPost'
-import '../App.css'
+import Posts from './pages/Posts'
+import ViewPost from './pages/ViewPost'
+import AddPost from './pages/AddPost'
+import EditPost from './pages/EditPost'
+import './App.css'
 
 class App extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       backend: 'backend-data'
     }
@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     const api = process.env.REACT_APP_READABLE_API_URL || 'http://localhost:3001'
-    const url = `${api}/posts`;
+    const url = `${api}/posts`
     let token = localStorage.token
     if (!token) 
       token = localStorage.token = Math.random().toString(36).substr(-8)
@@ -27,11 +27,11 @@ class App extends Component {
       'Authorization': token
     }
 
-    console.log('fetching from url', url);
+    console.log('fetching from url', url)
 
     fetch(url, { headers, /*credentials: 'include' */})
       .then( (res) => { return(res.text())})
-      .then((data) => {this.setState({backend:data});});
+      .then((data) => {this.setState({backend:data})})
   }
 
   render() {
@@ -41,11 +41,11 @@ class App extends Component {
               <Route exact path ='/' component={Posts} />
               <Route exact path ='/add-post' component={AddPost} />
               <Route exact path ='/edit-post/:id' component={EditPost} />
-              <Route exact path ='/:category/:id' component={Post} />
+              <Route exact path ='/:category/:id' component={ViewPost} />
             </Switch>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

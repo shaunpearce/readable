@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import uuidv1 from 'uuid/v1'
-import PostForm from './PostForm'
+import PostForm from '../components/PostForm'
 import { addNewPostAction } from '../actions'
 
 class AddPost extends Component {
@@ -16,6 +16,7 @@ class AddPost extends Component {
       body: values.body
     } 
     this.props.addPost(newPost)
+    this.props.history.goBack()
   }
 
   render () {

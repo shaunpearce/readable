@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import uuidv1 from 'uuid/v1'
-import PostForm from './PostForm'
+import PostForm from '../components/PostForm'
 import { fetchPost, editPostAction } from '../actions'
 
 class EditPost extends Component {
@@ -24,6 +23,7 @@ class EditPost extends Component {
     } 
 
     this.props.editPost(this.state.id, editedPost)
+    this.props.history.goBack()
   }
 
   render () {

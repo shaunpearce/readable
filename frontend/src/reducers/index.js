@@ -73,6 +73,49 @@ const posts = (state = initialState, action) => {
         }
       }
 
+    case 'ADD_NEW_COMMENT':
+      return {
+        ...state,
+        [action.parentId]:{
+          ...state[action.parentId],
+          comments: {
+            ...state[action.parentId].comments,
+            [action.comment.id]:{
+              ...action.comment
+            }
+          }
+        }
+      }
+
+    case 'EDIT_COMMENT':
+      return {
+        ...state,
+        [action.comment.parentId]:{
+          ...state[action.comment.parentId],
+          comments: {
+            ...state[action.comment.parentId].comments,
+            [action.id]:{
+              ...action.comment
+            }
+          }
+        }
+      }
+
+    case 'VOTE_COMMENT':
+      return {
+        ...state, 
+        [action.parentId]:{
+          ...state[action.parentId],
+          comments:{
+            ...state[action.parentId].comments,
+            [action.id]:{
+                ...state[action.parentId].comments[action.id],
+                voteScore: action.voteScore 
+              }
+          }
+        }
+      } 
+
     default:
       return state
   }

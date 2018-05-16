@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
-import PostSummary from './PostSummary'
+import Post from '../components/Post'
 
 class Posts extends Component {
 
@@ -13,7 +13,7 @@ class Posts extends Component {
 		this.props.getPosts()
 		.then(() => {
 				this.setState({
-				  loaded: true
+					loaded: true
 				})
 			})
 	}
@@ -23,7 +23,7 @@ class Posts extends Component {
 		const { posts } = this.props
 		const postsList = Object.values(posts).map((post, index) => {
 				return(
-						<PostSummary key={index} post={post}/>
+						<Post key={index} post={post} postSummary={true}/>
 				)
 		})
 

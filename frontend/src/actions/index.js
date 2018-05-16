@@ -1,10 +1,13 @@
-import { getPost, getAllPosts, getComments, votePost, addNewPost, editPost} from '../utils/ReadableAPI'
+import { getPost, getAllPosts, getComments, votePost, addNewPost, editPost, addNewComment, editComment, voteComment } from '../utils/ReadableAPI'
 
 const GET_POSTS = 'GET_POSTS'
 const VOTE_POST = 'VOTE_POST'
 const GET_POST = 'GET_POST'
 const ADD_NEW_POST = 'ADD_NEW_POST'
 const EDIT_POST = 'EDIT_POST'
+const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
+const EDIT_COMMENT = 'EDIT_COMMENT'
+const VOTE_COMMENT = 'VOTE_COMMENT'
 
 export const fetchPosts = () => dispatch => (
     getAllPosts()
@@ -80,3 +83,50 @@ export const upVotePostAction = (id) => dispatch => (
         })
       })
   )
+
+  export const addNewCommentAction = (comment, parentId) => dispatch => (
+    addNewComment(comment)
+      .then(comment => {
+        dispatch({
+          type: ADD_NEW_COMMENT,
+          comment,
+          parentId
+        })
+      })
+  )
+
+  export const editCommentAction = (id, comment) => dispatch => {
+    return editComment(id, comment)
+      .then((comment) => {
+        dispatch({
+          type: EDIT_COMMENT,
+          id,
+          comment
+        })
+      })
+  }
+
+  export const upVoteCommentAction = (id) => dispatch => (
+    voteComment(id, "upVote")
+      .then((comment) => {
+        dispatch({
+          type: VOTE_COMMENT,
+          voteScore: comment.voteScore,
+          id: id,
+          parentId: comment.parentId
+        })
+      })
+  )
+
+  export const downVoteCommentAction = (id) => dispatch => (
+    voteComment(id, "downVote")
+      .then((comment) => {
+        console.log(comment)
+        dispatch({
+          type: VOTE_COMMENT,
+          voteScore: comment.voteScore,
+          id: id,
+          parentId: comment.parentId
+        })
+      })
+  ) 
