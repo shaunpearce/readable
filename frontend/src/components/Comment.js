@@ -45,24 +45,28 @@ class Comment extends Component {
       },
     }
 
+    const editComment = (
+      <div className="editing-comment-container">
+        <CommentForm {...commentValues} form={"edit"} onSubmit={this.submit} />
+      </div>
+    )
+
+    const postedComment = (
+      <div className="posted-comment-container">
+        <div className="comment-body">{comment.body}</div>
+        <div className="comment-author">{comment.author}</div>
+        <div className="comments-vote-container votes-container">
+          <div className="vote-up-control" onClick={() => this.onClickUpVote(comment.id)}>+</div>
+          <div className="vote-score">{comment.voteScore}</div>
+          <div className="vote-down-control" onClick={() => this.onClickDownVote(comment.id)}>-</div>
+        </div>
+        <div className="edit-comment-button" onClick={() => this.onEditComment()}>Edit Comment</div>
+      </div>
+    )
+
     return (
       <div className="comment-container">
-        {this.state.editingCommet ? 
-          <div className="editing-comment-container">
-            <CommentForm {...commentValues} form={"edit"} onSubmit={this.submit} />
-          </div>
-          :
-            <div className="completed-comment">
-              <div className="comment-body">{comment.body}</div>
-              <div className="comment-author">{comment.author}</div>
-              <div className="comments-vote-container votes-container">
-                    <div className="vote-up-control" onClick={() => this.onClickUpVote(comment.id)}>+</div>
-                    <div className="vote-score">{comment.voteScore}</div>
-                    <div className="vote-down-control" onClick={() => this.onClickDownVote(comment.id)}>-</div>
-              </div>
-              <div className="edit-comment-button" onClick={() => this.onEditComment()}>Edit Comment</div>
-            </div>
-        }        
+        {this.state.editingCommet ? editComment : postedComment}        
       </div>
     )
   }
