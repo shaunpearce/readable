@@ -121,7 +121,6 @@ export const upVotePostAction = (id) => dispatch => (
   export const downVoteCommentAction = (id) => dispatch => (
     voteComment(id, "downVote")
       .then((comment) => {
-        console.log(comment)
         dispatch({
           type: VOTE_COMMENT,
           voteScore: comment.voteScore,

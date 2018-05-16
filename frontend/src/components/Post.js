@@ -19,7 +19,6 @@ class Post extends Component {
     
     const { post, postSummary } = this.props
     const comments = post.comments && Object.values(post.comments)
-    console.log(postSummary)
 
     return(
         <div className="post-container">

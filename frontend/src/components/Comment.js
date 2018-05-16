@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import uuidv1 from 'uuid/v1'
 import { upVoteCommentAction, downVoteCommentAction, editCommentAction } from '../actions'
 import CommentForm from './CommentForm'
 
