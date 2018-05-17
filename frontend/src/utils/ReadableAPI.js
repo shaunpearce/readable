@@ -104,6 +104,15 @@ export const editComment = (id, comment) => {
   .then(data => data.json())
 }
 
+// DELETE /comments/:id
+export const deleteComment = (id) => {
+  return fetch(`${api}/comments/${id}`, {
+    method: 'DELETE',
+    headers
+  })
+  .then(data => data.json())
+}
+
 // POST /comments/:id
 export const voteComment = (id, option) => {
   return fetch(`${api}/comments/${id}`, {

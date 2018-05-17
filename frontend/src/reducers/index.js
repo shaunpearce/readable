@@ -110,6 +110,21 @@ const posts = (state = initialState, action) => {
         }
       }
 
+    case 'DELETE_COMMENT':
+      return {
+        ...state,
+        [action.comment.parentId]:{
+          ...state[action.comment.parentId],
+          comments: {
+            ...state[action.comment.parentId].comments,
+            [action.comment.id]:{
+              ...action.comment,
+              deleted: true
+            }
+          }
+        }
+      }
+
     case 'VOTE_COMMENT':
       return {
         ...state, 

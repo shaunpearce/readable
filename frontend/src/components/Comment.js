@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { upVoteCommentAction, downVoteCommentAction, editCommentAction } from '../actions'
+import { upVoteCommentAction, downVoteCommentAction, editCommentAction, deleteCommentAction } from '../actions'
 import CommentForm from './CommentForm'
 
 class Comment extends Component {
@@ -35,6 +35,10 @@ class Comment extends Component {
     })
   }
 
+  onDeleteComment(comment){
+    this.props.deleteComment(comment)
+  }
+
   render () {
     const { comment } = this.props
 
@@ -59,7 +63,11 @@ class Comment extends Component {
           <div className="vote-score">{comment.voteScore}</div>
           <div className="vote-down-control" onClick={() => this.onClickDownVote(comment.id)}>-</div>
         </div>
+        <br/><br/>
         <div className="edit-comment-button" onClick={() => this.onEditComment()}>Edit Comment</div>
+        <br/><br/>
+        <div className="edit-comment-button" onClick={() => this.onDeleteComment(comment)}>Delete Comment</div>
+        <br/><br/>
       </div>
     )
 
@@ -76,6 +84,7 @@ const mapDispatchToProps = (dispatch) => {
     upVote: (id) => dispatch(upVoteCommentAction(id)),
     downVote: (id) => dispatch(downVoteCommentAction(id)),
     editComment: (id, comment) => dispatch(editCommentAction(id, comment)),
+    deleteComment: (comment) => dispatch(deleteCommentAction(comment)),
   }
 }
 

@@ -1,4 +1,4 @@
-import { getPost, getAllPosts, getComments, votePost, addNewPost, editPost, addNewComment, editComment, voteComment, deletePost } from '../utils/ReadableAPI'
+import { getPost, getAllPosts, getComments, votePost, addNewPost, editPost, deletePost, addNewComment, editComment, voteComment, deleteComment } from '../utils/ReadableAPI'
 
 const GET_POSTS = 'GET_POSTS'
 const VOTE_POST = 'VOTE_POST'
@@ -8,6 +8,7 @@ const EDIT_POST = 'EDIT_POST'
 const DELETE_POST = 'DELETE_POST'
 const ADD_NEW_COMMENT = 'ADD_NEW_COMMENT'
 const EDIT_COMMENT = 'EDIT_COMMENT'
+const DELETE_COMMENT = 'DELETE_COMMENT'
 const VOTE_COMMENT = 'VOTE_COMMENT'
 
 export const fetchPosts = () => dispatch => (
@@ -113,6 +114,16 @@ export const upVotePostAction = (id) => dispatch => (
           type: EDIT_COMMENT,
           id,
           comment
+        })
+      })
+  }
+
+  export const deleteCommentAction = (comment) => dispatch => {
+    return deleteComment(comment.id)
+      .then(() => {
+        dispatch({
+          type: DELETE_COMMENT,
+          comment,
         })
       })
   }
