@@ -25,7 +25,7 @@ class Post extends Component {
   render() {
     
     const { post, postSummary } = this.props
-    const comments = post.comments && Object.values(post.comments)
+    const comments = post.comments && Object.values(post.comments).filter(comment => !comment.deleted)
 
     return(
         <div className="post-container">
@@ -51,7 +51,7 @@ class Post extends Component {
             <div onClick={() => this.onDeletePost(post.id)}>Delete</div>
 
             {!postSummary && comments &&
-              comments.filter(comment => !comment.deleted).map( (comment, index) => {
+              comments.map( (comment, index) => {
                 return <Comment key={index} comment={comment}/>
               })
             }
