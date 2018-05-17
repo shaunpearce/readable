@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Posts from './pages/Posts'
+import ViewPosts from './pages/ViewPosts'
 import ViewPost from './pages/ViewPost'
 import AddPost from './pages/AddPost'
 import EditPost from './pages/EditPost'
@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
             <Switch>
-              <Route exact path ='/' component={Posts} />
+              <Route exact path ='/' component={ViewPosts} />
               <Route exact path ='/add-post' component={AddPost} />
               <Route exact path ='/edit-post/:id' component={EditPost} />
               <Route exact path ='/:category/:id' component={ViewPost} />

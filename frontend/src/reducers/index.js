@@ -73,6 +73,15 @@ const posts = (state = initialState, action) => {
         }
       }
 
+    case 'DELETE_POST':
+      return {
+        ...state,
+        [action.id]:{
+          ...state[action.id],
+          deleted: true
+        }
+      }
+
     case 'ADD_NEW_COMMENT':
       return {
         ...state,

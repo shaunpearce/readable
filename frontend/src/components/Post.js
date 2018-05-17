@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { upVotePostAction, downVotePostAction } from '../actions'
+import { withRouter, Link } from 'react-router-dom'
+import { upVotePostAction, downVotePostAction, deletePostAction } from '../actions'
 import Comment from './Comment'
 import AddComment from './AddComment'
 
@@ -15,11 +15,18 @@ class Post extends Component {
     this.props.downVote(id)
   }
 
+  onDeletePost(id){
+    this.props.deletePost(id)
+    if(this.props.match.params.id){
+      this.props.history.push('/')
+    }
+  }
+
   render() {
     
     const { post, postSummary } = this.props
     const comments = post.comments && Object.values(post.comments)
-
+    
     return(
         <div className="post-container">
             <div className="post-title">{post.title}</div>
@@ -37,8 +44,11 @@ class Post extends Component {
             {postSummary && 
               <Link to={`/${post.category}/${post.id}`}>Go</Link> 
             }
-
+            <br/><br/>
             <Link to={`/edit-post/${post.id}`}>Edit</Link> 
+            <br/><br/>
+
+            <div onClick={() => this.onDeletePost(post.id)}>Delete</div>
 
             {!postSummary && comments &&
               comments.map( (comment, index) => {
@@ -60,6 +70,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     upVote: (id) => dispatch(upVotePostAction(id)),
     downVote: (id) => dispatch(downVotePostAction(id)),
+    deletePost: (id) => dispatch(deletePostAction(id)),
   }
 }
 
@@ -67,4 +78,4 @@ Post.defaultProps = {
   postSummary: false,
 }
 
-export default connect(null, mapDispatchToProps)(Post)
+export default withRouter(connect(null, mapDispatchToProps)(Post))

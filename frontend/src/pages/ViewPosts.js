@@ -21,9 +21,10 @@ class Posts extends Component {
 	render() {
 		
 		const { posts } = this.props
-		const postsList = Object.values(posts).map((post, index) => {
+			
+		const postsList = Object.values(posts).filter(post => !post.deleted).map((post, index) => {
 				return(
-						<Post key={index} post={post} postSummary={true}/>
+					<Post key={index} post={post} postSummary={true}/>
 				)
 		})
 

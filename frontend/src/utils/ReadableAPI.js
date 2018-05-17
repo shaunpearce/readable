@@ -70,6 +70,14 @@ export const editPost = (id, post) => {
   .then(data => data.json())
 }
 
+// DELETE /posts/:id
+export const deletePost = (id) => {
+  return fetch(`${api}/posts/${id}`, { 
+    method: 'DELETE',
+    headers 
+  })
+}
+
 // POST /comments
 export const addNewComment = (newComment) => {
   return fetch(`${api}/comments`, { 
