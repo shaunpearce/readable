@@ -14,6 +14,10 @@ import reducer from './reducers/index'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
+//let css = require('./styles/stylus/main.styl')
+//var css = require('./styles/stylus/main.styl')
+
+
 const middleware = applyMiddleware(thunk, createLogger())
 const store = createStore(reducer, compose(
       middleware,

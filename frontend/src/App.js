@@ -4,6 +4,7 @@ import ViewPosts from './pages/ViewPosts'
 import ViewPost from './pages/ViewPost'
 import AddPost from './pages/AddPost'
 import EditPost from './pages/EditPost'
+import { Header } from './components/ui'
 import './App.css'
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     const api = process.env.REACT_APP_READABLE_API_URL || 'http://localhost:3001'
-    const url = `${api}/posts`
+    const url = `${api}/categories`
     let token = localStorage.token
     if (!token) 
       token = localStorage.token = Math.random().toString(36).substr(-8)
@@ -37,12 +38,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-            <Switch>
-              <Route exact path ='/' component={ViewPosts} />
-              <Route exact path ='/add-post' component={AddPost} />
-              <Route exact path ='/edit-post/:id' component={EditPost} />
-              <Route exact path ='/:category/:id' component={ViewPost} />
-            </Switch>
+            <Header/>
+            <div className="content-wrapper">
+              <div>Sidebar</div>
+              <Switch>
+                <Route exact path ='/' component={ViewPosts} />
+                <Route exact path ='/add-post' component={AddPost} />
+                <Route exact path ='/edit-post/:id' component={EditPost} />
+                <Route exact path ='/:category/:id' component={ViewPost} />
+              </Switch>
+            
+            </div>
+            
       </div>
     )
   }
