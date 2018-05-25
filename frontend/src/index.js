@@ -9,13 +9,11 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
 import reducer from './reducers/index'
-//import './index.css'
+import './styles/css/main.css'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-//let css = require('./styles/stylus/main.styl')
-//var css = require('./styles/stylus/main.styl')
 
 
 const middleware = applyMiddleware(thunk, createLogger())
