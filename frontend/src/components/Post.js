@@ -32,7 +32,7 @@ class Post extends Component {
             <div className="post-title">{post.title}</div>
             <div className="post-author">{post.author}</div>
             {post.comments ? 
-                <div className="post-comments-meta">{comments.length} {comments.length == 1 ? "Comment": "Comments" }</div>:
+                <div className="post-comments-meta">{comments.length} {comments.length === 1 ? "Comment": "Comments" }</div>:
                 <div className="post-comments-meta">0 Comments</div>
             }
             <div className="post-vote-container votes-container">

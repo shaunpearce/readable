@@ -4,7 +4,7 @@ import ViewPosts from './pages/ViewPosts'
 import ViewPost from './pages/ViewPost'
 import AddPost from './pages/AddPost'
 import EditPost from './pages/EditPost'
-import { Header } from './components/ui'
+import { Header, SideBar } from './components/ui'
 import './App.css'
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
       <div className="App">
             <Header/>
             <div className="content-wrapper">
-              <div>Sidebar</div>
+              <SideBar/>
               <Switch>
                 <Route exact path ='/' component={ViewPosts} />
                 <Route exact path ='/add-post' component={AddPost} />

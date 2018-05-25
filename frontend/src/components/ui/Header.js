@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AddIcon, Logo } from '../icons'
+import { Logo } from '../icons'
 
 class Header extends Component {
   render () {
@@ -10,7 +10,7 @@ class Header extends Component {
           <div className="header-logo-text">Readable</div>
         </div>
         <div className="header-button-container">
-          <div className="button icon-button primary big"><AddIcon/></div>
+          <div className="button icon-button primary big">+</div>
         </div>
       </div>
     )

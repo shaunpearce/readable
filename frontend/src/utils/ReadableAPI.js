@@ -127,3 +127,17 @@ export const voteComment = (id, option) => {
   })
   .then(data => data.json())
 }
+
+// GET /categories
+export const getAllCategories = () => {
+  return fetch(`${api}/categories`, { headers })
+    .then(response => response.json())
+    .then(data => data.categories)
+}
+
+// GET /:category/posts
+export const getAllPostsForCategory = (category) => {
+  return fetch(`${api}/${category}/posts`, { headers })
+    .then(response => response.json())
+    .then(data => data)
+}

@@ -145,8 +145,34 @@ const posts = (state = initialState, action) => {
   }
 }
 
+const categories = (state = initialState, action) => {
+
+  let categoriesArray
+
+  switch(action.type) {
+
+    case 'GET_CATEGORIES':
+      categoriesArray = action.categories.reduce((array, category) => {
+        array[category.name] = {
+          ...category
+        }
+        return array
+      },{})
+
+      return {
+        ...state, 
+        ...categoriesArray
+      }
+
+    default:
+      return state
+
+  }
+
+}
 
 export default combineReducers({
     posts,
+    categories,
     form: formReducer,
 })

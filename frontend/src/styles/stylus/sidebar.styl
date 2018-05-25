@@ -1,0 +1,55 @@
+.sidebar-container
+    position: fixed
+    width: $sidebar-width
+    height: "calc(100% - %s)" % $header-height
+    top: $header-height
+    background: $grey.darker
+    padding: 48px 36px
+
+
+    .sidebar-link-container
+        display: flex
+        align-items: center
+        color: white
+
+        &.sidebar-primary-link-container
+            margin-bottom: 32px
+
+            .sidebar-primary-link-icon 
+                display: flex
+                svg
+                    width: 18px;
+                    height: 18px
+
+            .sidebar-primary-link-text
+                margin-left: 16px
+                font-size: 18px
+                line-height: 15px
+                font-family: $seconday-font-family
+
+
+        &.sidebar-secondary-link-container
+            margin-left: 24px
+            margin-bottom: 24px
+
+            .sidebar-secondary-link-icon 
+                width: 8px
+                height: 8px
+                border-radius: 50%
+
+                &.blue
+                    background: $blue.light
+
+                &.purple
+                    background: $purple.regular
+
+                &.green
+                    background: $green.regular
+
+
+
+            .sidebar-secondary-link-text
+                margin-left: 16px
+                font-size: 15px
+                line-height: 16px
+                text-transform: capitalize

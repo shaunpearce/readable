@@ -1,2 +1,47 @@
 .header-container
-  background: blue
+    position: sticky
+    top: 0px
+    height: $header-height
+    display: flex
+    justify-content: space-between
+    align-items: center
+    border-bottom: 1px solid $grey.light
+    box-shadow: -2px 1px 3px 0px #f1f1f1
+    background: white
+
+    .header-logo-container
+        display: flex
+        align-items: center
+        margin-left: 24px
+
+        .header-logo-icon
+            width: 24px
+            color: $grey.regular
+            margin-right: 12px
+
+        .header-logo-text
+            font-size: 32px
+            font-weight: 700
+            text-transform: uppercase
+            letter-spacing: 1px
+            color: $blue.regular
+
+    .header-button-container
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 84px
+        height: 100%
+        background: $blue.regular
+
+        .button
+            color: white
+            font-size: 40px
+            line-height: 22px
+
+        &:hover
+            background: $blue.dark
+            cursor: pointer
+	  
+
+

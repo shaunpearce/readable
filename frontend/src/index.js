@@ -9,12 +9,10 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
 import reducer from './reducers/index'
-import './styles/css/main.css'
+import './styles/css/index.css'
 
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-
-
 
 const middleware = applyMiddleware(thunk, createLogger())
 const store = createStore(reducer, compose(
