@@ -45,6 +45,7 @@ class App extends Component {
                 <Route exact path ='/' component={ViewPosts} />
                 <Route exact path ='/add-post' component={AddPost} />
                 <Route exact path ='/edit-post/:id' component={EditPost} />
+                <Route exact path ='/:category' component={ViewPosts} />
                 <Route exact path ='/:category/:id' component={ViewPost} />
               </Switch>
             

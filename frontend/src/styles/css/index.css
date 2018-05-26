@@ -16,6 +16,7 @@ body {
 .header-container {
   position: sticky;
   top: 0px;
+  z-index: 2;
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -58,6 +59,18 @@ body {
   background: #2171c1;
   cursor: pointer;
 }
+.category {
+  background: #6ed7f9;
+}
+.category.react {
+  background: #6ed7f9;
+}
+.category.redux {
+  background: #6e51b5;
+}
+.category.udacity {
+  background: #55efc4;
+}
 .sidebar-container {
   position: fixed;
   width: 260px;
@@ -95,15 +108,6 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-}
-.sidebar-container .sidebar-link-container.sidebar-secondary-link-container .sidebar-secondary-link-icon.blue {
-  background: #6ed7f9;
-}
-.sidebar-container .sidebar-link-container.sidebar-secondary-link-container .sidebar-secondary-link-icon.purple {
-  background: #6e51b5;
-}
-.sidebar-container .sidebar-link-container.sidebar-secondary-link-container .sidebar-secondary-link-icon.green {
-  background: #55efc4;
 }
 .sidebar-container .sidebar-link-container.sidebar-secondary-link-container .sidebar-secondary-link-text {
   margin-left: 16px;
