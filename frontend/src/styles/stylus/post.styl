@@ -1,0 +1,72 @@
+
+.post-container
+    margin-bottom: 36px
+
+.post-content-container
+    position: relative
+    width: "calc(100% - %s)" % $strip-width
+    left: $strip-width
+
+    .post-top-container
+        display: flex
+
+        .post-data-container
+            flex: 1
+            text-align: left
+            padding: 16px
+
+
+            .post-title
+                font-size: 28px
+                font-weight: 700
+                color: $grey.darker
+
+            .post-author
+                font-size: 15px
+                color: $grey.dark
+                text-transform: capitalize
+                margin: 12px 0px 16px
+
+            .post-body
+                font-size: 16px
+                color: $grey.dark
+                text-transform: capitalize
+                margin-bottom: 24px
+
+
+            .post-meta-container
+                display: flex
+
+                .post-meta
+                    display: flex
+                    align-items: center
+                    font-size: 14px
+                    color: $grey.regular
+                    margin-right: 32px
+
+                    &:last-child
+                        margin-right: 0px
+
+                    .post-meta-icon-container
+                        svg
+                            display: flex
+                            width: 12px
+                            height: 12px
+
+                    .post-meta-data
+                        margin: 0 4px 0 6px 
+
+        .post-vote-container 
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 16px
+
+    .post-bottom-container
+        display: flex
+        border-top: 1px solid $grey.light
+
+        .post-controls-container
+            flex: 1
+            display: flex
+            padding: 16px

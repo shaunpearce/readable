@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Logo } from '../icons'
+import { withRouter, Link } from 'react-router-dom'
 
 class Header extends Component {
   render () {
@@ -9,12 +10,12 @@ class Header extends Component {
           <div className="header-logo-icon"><Logo/></div>
           <div className="header-logo-text">Readable</div>
         </div>
-        <div className="header-button-container">
-          <div className="button icon-button primary big">+</div>
-        </div>
+        <Link to={`/add-post`} className="header-button-container">
+            <div className="button icon-button primary big">+</div>
+        </Link>
       </div>
     )
   }
 }
 
-export default Header
+export default withRouter(Header)

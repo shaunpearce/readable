@@ -1,5 +1,51 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+.button {
+  text-decoration: none;
+}
+.button.secondary {
+  display: flex;
+  font-size: 15px;
+  color: #2c88e5;
+  margin-right: 24px;
+}
+.button.secondary:last-child {
+  margin-right: 0px;
+}
+.button.secondary svg {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+}
+.button:hover {
+  cursor: pointer;
+  color: #2171c1;
+}
+.post-go-button {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2c88e5;
+  color: #fff;
+}
+.post-go-button:hover {
+  background: #2171c1;
+}
+.vote-control-container {
+  color: #2c88e5;
+  user-select: none;
+}
+.vote-control-container .vote-score {
+  font-size: 20px;
+  width: 24px;
+}
+.vote-control-container .vote-control {
+  cursor: pointer;
+}
+.vote-control-container .vote-control:hover {
+  color: #2171c1;
+}
 * {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
@@ -8,10 +54,14 @@ body {
   margin: 0;
   background: #f7f8fb;
 }
+a {
+  text-decoration: none;
+}
 .page-container {
   position: relative;
   left: 260px;
   width: calc(100% - 260px);
+  padding: 52px;
 }
 .header-container {
   position: sticky;
@@ -70,6 +120,89 @@ body {
 }
 .category.udacity {
   background: #55efc4;
+}
+.card {
+  position: relative;
+  background: #fff;
+  box-shadow: 3px 3px 3px 0px #f1f1f1;
+}
+.card.medium {
+  max-width: 880px;
+}
+.card .card-color-strip {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  width: 6px;
+}
+.post-container {
+  margin-bottom: 36px;
+}
+.post-content-container {
+  position: relative;
+  width: calc(100% - 6px);
+  left: 6px;
+}
+.post-content-container .post-top-container {
+  display: flex;
+}
+.post-content-container .post-top-container .post-data-container {
+  flex: 1;
+  text-align: left;
+  padding: 16px;
+}
+.post-content-container .post-top-container .post-data-container .post-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2e2f33;
+}
+.post-content-container .post-top-container .post-data-container .post-author {
+  font-size: 15px;
+  color: #8c94a5;
+  text-transform: capitalize;
+  margin: 12px 0px 16px;
+}
+.post-content-container .post-top-container .post-data-container .post-body {
+  font-size: 16px;
+  color: #8c94a5;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+.post-content-container .post-top-container .post-data-container .post-meta-container {
+  display: flex;
+}
+.post-content-container .post-top-container .post-data-container .post-meta-container .post-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #bab8bc;
+  margin-right: 32px;
+}
+.post-content-container .post-top-container .post-data-container .post-meta-container .post-meta:last-child {
+  margin-right: 0px;
+}
+.post-content-container .post-top-container .post-data-container .post-meta-container .post-meta .post-meta-icon-container svg {
+  display: flex;
+  width: 12px;
+  height: 12px;
+}
+.post-content-container .post-top-container .post-data-container .post-meta-container .post-meta .post-meta-data {
+  margin: 0 4px 0 6px;
+}
+.post-content-container .post-top-container .post-vote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+.post-content-container .post-bottom-container {
+  display: flex;
+  border-top: 1px solid rgba(186,184,188,0.2);
+}
+.post-content-container .post-bottom-container .post-controls-container {
+  flex: 1;
+  display: flex;
+  padding: 16px;
 }
 .sidebar-container {
   position: fixed;

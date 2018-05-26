@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import _ from 'lodash'
 import { fetchCategories } from '../../actions'
-import classNames from 'classnames';
+import classNames from 'classnames'
 import { PostsIcon } from '../icons'
 
 class SideBar extends Component {
@@ -17,12 +17,11 @@ class SideBar extends Component {
     const { categories } = this.props
 
     const categoryLinks = Object.values(categories).map((category, index) => {
-      let categoryColor = "blue"
       const linkClasses = classNames('sidebar-secondary-link-icon category', category.name)
       
       return (
-        <Link to={`/${category.path}`}>
-          <div className="sidebar-link-container sidebar-secondary-link-container" key={index}>
+        <Link to={`/${category.path}`} key={index}>
+          <div className="sidebar-link-container sidebar-secondary-link-container">
             <div className={linkClasses}></div>
             <div className="sidebar-secondary-link-text">{category.name}</div>
           </div>
