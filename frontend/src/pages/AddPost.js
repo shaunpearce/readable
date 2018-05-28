@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import uuidv1 from 'uuid/v1'
 import PostForm from '../components/PostForm'
 import { addNewPostAction } from '../actions'
+import { WriteIcon } from '../components/icons';
 
 class AddPost extends Component {
 
@@ -16,14 +17,23 @@ class AddPost extends Component {
       body: values.body
     } 
     this.props.addPost(newPost)
-    this.props.history.goBack()
+    this.props.history.push(`/`)
   }
 
   render () {
 
     return (
-      <div>
+      <div className="page-container">
+        <div className="post-form-container card medium">
+          <div className="form-description-container">
+            <div className="form-title-container">
+              <div className="form-title-icon"><WriteIcon/></div>
+              <div className="form-title-text">Add Post</div>
+            </div>
+            <div className="form-subtitle">Add a new blog post for people to read, rank and comment on</div>
+          </div>
           <PostForm onSubmit={this.submit} />
+        </div>
       </div>
     )
   }

@@ -11,7 +11,7 @@ class Header extends Component {
           <div className="header-logo-text">Readable</div>
         </div>
         <Link to={`/add-post`} className="header-button-container">
-            <div className="button icon-button primary big">+</div>
+            <div className="button icon-button">+</div>
         </Link>
       </div>
     )

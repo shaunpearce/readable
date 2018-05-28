@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PostForm from '../components/PostForm'
 import { fetchPost, editPostAction } from '../actions'
+import { WriteIcon } from '../components/icons';
 
 class EditPost extends Component {
 
@@ -42,8 +43,17 @@ class EditPost extends Component {
     }
 
     return (
-      <div>
+      <div className="page-container">
+        <div className="post-form-container card medium">
+          <div className="form-description-container">
+            <div className="form-title-container">
+              <div className="form-title-icon"><WriteIcon/></div>
+              <div className="form-title-text">Add Post</div>
+            </div>
+            <div className="form-subtitle">Add a new blog post for people to read, rank and comment on</div>
+          </div>
           <PostForm {...postValues} onSubmit={this.submit} />
+        </div>
       </div>
     )
   }

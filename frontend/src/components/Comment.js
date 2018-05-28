@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { upVoteCommentAction, downVoteCommentAction, editCommentAction, deleteCommentAction } from '../actions'
 import CommentForm from './CommentForm'
+import VoteControl from './VoteControl';
+import { EditIcon, TrashIcon } from './icons';
 
 class Comment extends Component {
 
@@ -35,6 +37,12 @@ class Comment extends Component {
     })
   }
 
+  onCancel(){
+    this.setState({ 
+      editingCommet: false 
+    })
+  }
+
   onDeleteComment(comment){
     this.props.deleteComment(comment)
   }
@@ -50,29 +58,32 @@ class Comment extends Component {
 
     const editComment = (
       <div className="editing-comment-container">
-        <CommentForm {...commentValues} form={"edit"} onSubmit={this.submit} />
+        <CommentForm {...commentValues} form={"edit"} onSubmit={this.submit} onCancel={() => this.onCancel()} />
       </div>
     )
 
     const postedComment = (
       <div className="posted-comment-container">
-        <div className="comment-body">{comment.body}</div>
-        <div className="comment-author">{comment.author}</div>
-        <div className="comments-vote-container votes-container">
-          <div className="vote-up-control" onClick={() => this.onClickUpVote(comment.id)}>+</div>
-          <div className="vote-score">{comment.voteScore}</div>
-          <div className="vote-down-control" onClick={() => this.onClickDownVote(comment.id)}>-</div>
+        <div className="posted-comment-top-container">
+          <div className="posted-comment-data-container">
+            <div className="comment-body">{comment.body}</div>
+            <div className="comment-author">{comment.author}</div>
+          </div>
+          <div className="posted-comment-vote-container votes-container">
+            <VoteControl score={comment.voteScore} upVoteClick={() => this.onClickUpVote(comment.id)} downVoteClick={() => this.onClickDownVote(comment.id)}/>
+          </div>
         </div>
-        <br/><br/>
-        <div className="edit-comment-button" onClick={() => this.onEditComment()}>Edit Comment</div>
-        <br/><br/>
-        <div className="edit-comment-button" onClick={() => this.onDeleteComment(comment)}>Delete Comment</div>
-        <br/><br/>
+       <div className="posted-comment-bottom-container">
+          <div className="button secondary" onClick={() => this.onEditComment()}><EditIcon/> Edit</div> 
+          <div className="button secondary" onClick={() => this.onDeleteComment(comment)}><TrashIcon/>Delete</div>
+       </div>
+        
+        
       </div>
     )
 
     return (
-      <div className="comment-container">
+      <div className="comment-container card medium">
         {this.state.editingCommet ? editComment : postedComment}        
       </div>
     )

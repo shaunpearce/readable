@@ -3,6 +3,21 @@
 .button {
   text-decoration: none;
 }
+.button.primary {
+  background: #2c88e5;
+  color: #fff;
+  border-radius: 2px;
+  padding: 8px 16px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+.button.primary:hover {
+  cursor: pointer;
+  background: #2171c1;
+}
 .button.secondary {
   display: flex;
   font-size: 15px;
@@ -17,7 +32,7 @@
   height: 15px;
   margin-right: 6px;
 }
-.button:hover {
+.button.secondary:hover {
   cursor: pointer;
   color: #2171c1;
 }
@@ -188,6 +203,7 @@ a {
 }
 .post-content-container .post-top-container .post-data-container .post-meta-container .post-meta .post-meta-data {
   margin: 0 4px 0 6px;
+  text-transform: capitalize;
 }
 .post-content-container .post-top-container .post-vote-container {
   display: flex;
@@ -211,6 +227,7 @@ a {
   top: 70px;
   background: #2e2f33;
   padding: 48px 36px;
+  z-index: 3;
 }
 .sidebar-container .sidebar-link-container {
   display: flex;
@@ -247,4 +264,82 @@ a {
   font-size: 15px;
   line-height: 16px;
   text-transform: capitalize;
+}
+.field {
+  width: 100%;
+  border: 1px solid rgba(186,184,188,0.2);
+  font-size: 14px;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  outline: none;
+}
+.field:last-child {
+  margin-bottom: 0px;
+}
+.field:focus {
+  border: 1px solid #2c88e5;
+}
+.form-fields-container {
+  padding: 16px;
+}
+.form-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(186,184,188,0.2);
+  padding: 12px;
+}
+.form-description-container {
+  padding: 24px 16px 16px;
+  text-align: left;
+}
+.form-description-container .form-title-container {
+  display: flex;
+  align-items: flex-start;
+  color: #2c88e5;
+}
+.form-description-container .form-title-container .form-title-text {
+  font-size: 28px;
+}
+.form-description-container .form-title-container .form-title-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+}
+.form-description-container .form-subtitle {
+  margin-top: 12px;
+}
+.comment-container {
+  margin-bottom: 24px;
+}
+.posted-comment-container .posted-comment-top-container {
+  display: flex;
+}
+.posted-comment-container .posted-comment-top-container .posted-comment-data-container {
+  flex: 1;
+  text-align: left;
+  padding: 16px;
+}
+.posted-comment-container .posted-comment-top-container .posted-comment-data-container .comment-body {
+  font-size: 18px;
+  color: #2e2f33;
+}
+.posted-comment-container .posted-comment-top-container .posted-comment-data-container .comment-author {
+  color: #8c94a5;
+  font-size: 15px;
+  text-transform: capitalize;
+  margin-top: 12px;
+}
+.posted-comment-container .posted-comment-top-container .posted-comment-vote-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.posted-comment-container .posted-comment-bottom-container {
+  display: flex;
+  border-top: 1px solid rgba(186,184,188,0.2);
+  padding: 16px;
 }

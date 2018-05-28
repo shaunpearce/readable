@@ -22,7 +22,7 @@ class AddComment extends Component {
   render () {
 
     return (
-      <div>
+      <div className="add-comment-container card medium">
           <CommentForm form={"add"} onSubmit={this.submit} />
       </div>
     )

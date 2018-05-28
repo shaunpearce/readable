@@ -5,27 +5,19 @@ let PostForm = props => {
   const { handleSubmit } = props
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Title</label>
-        <Field name="title" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="author">Author</label>
-        <Field name="author" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="body">Body</label>
-        <Field name="body" component="textarea" type="text" />
-      </div>
-      <div>
-        <label htmlFor="category">Category</label>
-        <Field name="category" component="select" type="text">
+      <div className="form-fields-container">
+        <Field className="field" name="title" component="input" type="text" placeholder="Title"/>
+        <Field className="field" name="author" component="input" type="text" placeholder="Author"/>
+        <Field className="field" name="category" component="select" type="text" >
           <option value="red">red</option>
           <option value="green">green</option>
           <option value="blue">blue</option>
         </Field>
+        <Field className="field" name="body" component="textarea" type="text" placeholder="Post" rows="4"/>
       </div>
-      <button type="submit">Submit</button>
+      <div className="form-buttons-container">
+        <button className="button primary" type="submit">Submit</button>
+      </div>
     </form>
   )
 }

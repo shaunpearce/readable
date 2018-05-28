@@ -1,6 +1,21 @@
 .button
     text-decoration: none 
 
+    &.primary
+        background: $blue.regular
+        color: white
+        border-radius: 2px
+        padding: 8px 16px
+        border: none
+        font-size: 13px
+        font-weight: 700
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+
+        &:hover
+            cursor: pointer
+            background: $blue.dark
+
     &.secondary
         display: flex
         font-size: 15px
@@ -15,9 +30,10 @@
             height: 15px
             margin-right: 6px
 
-    &:hover
-        cursor: pointer
-        color: $blue.dark
+        &:hover
+            cursor: pointer
+            color: $blue.dark
+
 
 
 .post-go-button

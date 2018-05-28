@@ -8,6 +8,7 @@ import TrashIcon from './TrashIcon'
 import RightArrowIcon from './RightArrowIcon'
 import UpArrowIcon from './UpArrowIcon'
 import DownArrowIcon from './DownArrowIcon'
+import WriteIcon from './WriteIcon'
 
 export {
   AddIcon,
@@ -19,5 +20,6 @@ export {
   TrashIcon,
   RightArrowIcon,
   UpArrowIcon,
-  DownArrowIcon
+  DownArrowIcon,
+  WriteIcon
 }
