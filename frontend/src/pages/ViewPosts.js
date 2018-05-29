@@ -21,7 +21,6 @@ class Posts extends Component {
 	render() {
 		
 		const { posts, match } = this.props
-		console.log("match", match)	
 		const postsList = Object.values(posts).filter(post => (match.params.category ? post.category === match.params.category : post))
 		.filter(post => !post.deleted).map((post, index) => {
 				return(
