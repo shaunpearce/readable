@@ -10,7 +10,7 @@ class AddPost extends Component {
   submit = values => {
     const newPost = {
       id: uuidv1(),
-      timestamp: new Date(),
+      timestamp: new Date().getTime(),
       title: values.title,
       category: values.category,
       author: values.author,
