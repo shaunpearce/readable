@@ -1,0 +1,62 @@
+.sort-container
+    display: flex
+    justify-content: flex-end
+    margin-bottom: 42px
+    max-width: 880px
+
+    .Select
+        cursor: pointer !important
+        margin-left: 24px
+
+        &:last-child
+            margin-left: none
+
+
+.sort-by-select, .order-by-select
+    width: 160px
+
+    .Select-control
+        border-radius: 0px
+        border: none
+        border-left: 4px solid $blue.regular !important
+        box-shadow: $box-shadow !important
+
+    .Select-clear-zone
+        display: none
+
+    .Select-arrow
+        border-color: $blue.regular transparent transparent
+
+    .Select-menu-outer
+        border: 0px
+        border-radius: 0px
+
+.select-option-container
+    padding: 12px 16px
+    border-top: 1px solid $grey.light
+    &:hover
+        background: $blue.lighter
+
+
+.select-value-container, .select-option-container
+    display: flex
+    align-items: center
+    color: $blue.regular
+    cursor: pointer
+
+.custom-slect-text-container
+    color: $blue.regular
+    font-size: 14px
+    font-weight: 700
+    margin-left: 8px
+    margin-top: 1px
+
+.custom-slect-icon-container
+    color: $blue.regular
+    display: flex
+    svg
+        width: 16px
+        height: 16px
+
+
+    

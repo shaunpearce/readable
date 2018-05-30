@@ -3,13 +3,17 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions'
 import Post from '../components/Post'
 import sortBy from 'sort-by'
+import 'react-select/dist/react-select.css'
+import CustomSelect from '../components/ui/CustomSelect'
+import { TimeIcon } from '../components/icons';
+
 
 class Posts extends Component {
 
 	state = {
 		loaded: false,
 		sort: 'voteScore',
-		order: '-'
+		order: '-',
 	}
 
 	componentDidMount() {
@@ -21,17 +25,17 @@ class Posts extends Component {
 			})
 	}
 
-	onChangeSort(sortOption) {
+	onChangeSort = (sortOption) => {
 			this.setState({ 
-					sort: sortOption
+					sort: sortOption.value
 			})
 	}
 
-	onChangeOrder(orderOption) {
+	onChangeOrder = (orderOption) => {
 		this.setState({ 
-				order: orderOption 
+				order: orderOption.value 
 		})
-}
+	}
 
 	render() {
 		
@@ -49,14 +53,18 @@ class Posts extends Component {
 		return(
 				<div className="page-container">
 						<div className="sort-container">
-							<select value={this.state.sort} onChange={(e) => this.onChangeSort(e.target.value)}>
-									<option value="timestamp">Timestamp</option>
-									<option value="voteScore">Rating</option>
-							</select>
-							<select value={this.state.order} onChange={(e) => this.onChangeOrder(e.target.value)}>
-									<option value="-">{this.state.sort == 'timestamp' ? "Newest First": "Highest First"}</option>
-									<option value="">{this.state.sort == 'timestamp' ? "Oldest First": "Lowest First"}</option>
-							</select>
+							<CustomSelect className="sort-by-select" value={this.state.sort} onChange={this.onChangeSort} searchable={false} 
+								options={[
+									{ value: 'voteScore', label: 'Rating', icon: <TimeIcon/> },
+									{ value: 'timestamp', label: 'Post Time', icon: <TimeIcon/> },
+								]}
+							/>
+							<CustomSelect className="order-by-select" value={this.state.order} onChange={this.onChangeOrder} searchable={false} 
+								options={[
+									{ value: '-', label: this.state.sort == 'timestamp' ? "Newest First": "Highest First", icon: <TimeIcon/> },
+									{ value: '', label: this.state.sort == 'timestamp' ? "Oldest First": "Lowest First", icon: <TimeIcon/> },
+								]}
+							/>
 						</div>
 						{this.state.loaded && postsList}
 				</div>
