@@ -21,13 +21,9 @@
     "react-scripts": "1.0.13"
   },
   "scripts": {
-    "start": "npm-run-all -p watch-css start-js",
-    "start-js": "react-scripts start",
-    "build": "npm-run-all -p build-css build-js",
-    "build-js": "react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "watch-css": "stylus -I ./node_modules -w ./src/styles/stylus/index.styl -o ./src/styles/css/index.css",
-    "build-css": "stylus -I ./node_modules ./src/styles/stylus/index.styl -o ./src/styles/css/index.css"
+    "eject": "react-scripts eject"
   }
 }
