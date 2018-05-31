@@ -14,7 +14,7 @@
     "clone": "^2.1.1"
   },
   "scripts": {
-    "start": "cd frontend && npm start",
-    "heroku-postbuild": "cd frontend/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "start": "cd api-server && node server",
+    "heroku-postbuild": "cd api-server/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   }
 }
