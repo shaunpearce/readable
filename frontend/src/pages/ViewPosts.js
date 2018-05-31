@@ -5,7 +5,7 @@ import Post from '../components/Post'
 import sortBy from 'sort-by'
 import 'react-select/dist/react-select.css'
 import CustomSelect from '../components/ui/CustomSelect'
-import { TimeIcon } from '../components/icons';
+import { TimeIcon, StarIcon, UpArrowIcon, UpArrowOrder, DownArrowOrder } from '../components/icons';
 
 
 class Posts extends Component {
@@ -55,14 +55,14 @@ class Posts extends Component {
 						<div className="sort-container">
 							<CustomSelect className="sort-by-select" value={this.state.sort} onChange={this.onChangeSort} searchable={false} 
 								options={[
-									{ value: 'voteScore', label: 'Rating', icon: <TimeIcon/> },
+									{ value: 'voteScore', label: 'Rating', icon: <StarIcon/> },
 									{ value: 'timestamp', label: 'Post Time', icon: <TimeIcon/> },
 								]}
 							/>
 							<CustomSelect className="order-by-select" value={this.state.order} onChange={this.onChangeOrder} searchable={false} 
 								options={[
-									{ value: '-', label: this.state.sort == 'timestamp' ? "Newest First": "Highest First", icon: <TimeIcon/> },
-									{ value: '', label: this.state.sort == 'timestamp' ? "Oldest First": "Lowest First", icon: <TimeIcon/> },
+									{ value: '-', label: this.state.sort == 'timestamp' ? "Newest First": "Highest First", icon: <DownArrowOrder/> },
+									{ value: '', label: this.state.sort == 'timestamp' ? "Oldest First": "Lowest First", icon: <UpArrowOrder/> },
 								]}
 							/>
 						</div>

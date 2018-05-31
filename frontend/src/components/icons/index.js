@@ -9,6 +9,9 @@ import RightArrowIcon from './RightArrowIcon'
 import UpArrowIcon from './UpArrowIcon'
 import DownArrowIcon from './DownArrowIcon'
 import WriteIcon from './WriteIcon'
+import StarIcon from './StarIcon'
+import DownArrowOrder from './DownArrowOrder'
+import UpArrowOrder from './UpArrowOrder'
 
 export {
   AddIcon,
@@ -21,5 +24,8 @@ export {
   RightArrowIcon,
   UpArrowIcon,
   DownArrowIcon,
-  WriteIcon
+  WriteIcon,
+  StarIcon,
+  DownArrowOrder,
+  UpArrowOrder,
 }

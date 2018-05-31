@@ -23,7 +23,7 @@
     "build-js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "watch-css": "stylus -I ./node_modules -w ./src/styles/stylus/index.styl -o ./src/styles/css/index.css",  
+    "watch-css": "stylus -I ./node_modules -w ./src/styles/stylus/index.styl -o ./src/styles/css/index.css",
     "build-css": "stylus -I ./node_modules ./src/styles/stylus/index.styl -o ./src/styles/css/index.css"
   }
 }

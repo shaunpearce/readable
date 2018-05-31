@@ -3,7 +3,7 @@ import Select from 'react-select'
 import createClass from 'create-react-class'
 import 'react-select/dist/react-select.css'
 
-const GravatarOption = createClass({
+const SelectOption = createClass({
 	
 	handleMouseDown (event) {
 		event.preventDefault()
@@ -27,7 +27,7 @@ const GravatarOption = createClass({
 	}
 })
 
-const GravatarValue = createClass({
+const SelectValue = createClass({
 	
 	render () {
 		return (
@@ -50,8 +50,8 @@ class CustomSelect extends Component {
     return (
       <Select className={className} name="form-field-name" value={value} onChange={onChange} searchable={searchable}
 								options={options}
-                optionComponent={GravatarOption}
-                valueComponent={GravatarValue}
+                optionComponent={SelectOption}
+                valueComponent={SelectValue}
 							/>
     )
   }
