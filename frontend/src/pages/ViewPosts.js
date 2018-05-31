@@ -5,7 +5,7 @@ import Post from '../components/Post'
 import sortBy from 'sort-by'
 import 'react-select/dist/react-select.css'
 import CustomSelect from '../components/ui/CustomSelect'
-import { TimeIcon, StarIcon, UpArrowIcon, UpArrowOrder, DownArrowOrder } from '../components/icons';
+import { TimeIcon, StarIcon, UpArrowOrder, DownArrowOrder } from '../components/icons';
 
 
 class Posts extends Component {
