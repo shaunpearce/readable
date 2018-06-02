@@ -14,11 +14,13 @@ import './styles/css/index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
-const middleware = applyMiddleware(thunk, createLogger())
-const store = createStore(reducer, compose(
-      middleware,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-))
+const middleware = applyMiddleware(thunk)
+
+const store = createStore(
+  reducer,
+  compose(middleware),
+  compose(window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__())
+)
 
 ReactDOM.render(
 <Provider store={store}>
