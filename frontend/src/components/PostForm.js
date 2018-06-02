@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import { fetchCategories } from '../actions'
 
-
 let PostForm = props => {
+  
   const { handleSubmit, categories } = props
 
   const categorySelect = (

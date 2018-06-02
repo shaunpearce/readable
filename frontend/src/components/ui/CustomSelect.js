@@ -49,10 +49,10 @@ class CustomSelect extends Component {
 
     return (
       <Select className={className} name="form-field-name" value={value} onChange={onChange} searchable={searchable}
-								options={options}
-                optionComponent={SelectOption}
-                valueComponent={SelectValue}
-							/>
+				options={options}
+				optionComponent={SelectOption}
+				valueComponent={SelectValue}
+			/>
     )
   }
 }

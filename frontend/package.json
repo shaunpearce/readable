@@ -21,6 +21,7 @@
     "react-scripts": "1.0.13"
   },
   "scripts": {
+    "local": "npm-run-all -p watch-css start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

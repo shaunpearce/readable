@@ -13,7 +13,7 @@ const posts = (state = initialState, action) => {
   switch(action.type) {
 
     case 'GET_POSTS':
-        //RECHECK: Short hand maye within return
+        //RECHECK: Short hand maybe within return
       commentsArray = action.comments.reduce((array, comment) => {
           array[comment.id] = {
             ...comment

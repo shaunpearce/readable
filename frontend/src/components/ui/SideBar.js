@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-// import _ from 'lodash'
 import { fetchCategories } from '../../actions'
 import classNames from 'classnames'
 import { PostsIcon } from '../icons'
@@ -30,7 +29,6 @@ class SideBar extends Component {
     })
 
     return (
-      
       <div className="sidebar-container">
          <Link to={`/`}>
           <div className="sidebar-link-container sidebar-primary-link-container">
@@ -40,8 +38,6 @@ class SideBar extends Component {
         </Link>
         {categoryLinks}
       </div>
-
-      
     )
   }
 }

@@ -163,13 +163,3 @@ export const fetchCategories  = () => dispatch => (
           })
       })
 )
-
-// export const getCategories = (categories) => ({
-//     type: GET_CATEGORIES,
-//     categories
-// })
-
-// export const fetchCategories = () => dispatch => (
-//   getAllCategories()
-//     .then(categories => dispatch(getCategories(categories)))
-// )

@@ -4,5 +4,6 @@ import CustomSelect from './CustomSelect'
 
 export {
   Header,
-  SideBar
+  SideBar,
+  CustomSelect
 }

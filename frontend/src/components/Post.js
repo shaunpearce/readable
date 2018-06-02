@@ -9,8 +9,6 @@ import AddComment from './AddComment'
 import { CommentsIcon, TimeIcon, EditIcon, TrashIcon, RightArrowIcon } from './icons'
 import VoteControl from './VoteControl'
 
-//<div title={moment(value).format('LLLL')}>{moment(value).format('MM/DD/YYYY')}</div>
-
 class Post extends Component {
 
   onClickUpVote = (id) => {
@@ -86,12 +84,10 @@ class Post extends Component {
         {!postSummary && 
           <AddComment parentId={post.id} />
         }
-
         </div>
     )    
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -7,7 +7,6 @@ import 'react-select/dist/react-select.css'
 import CustomSelect from '../components/ui/CustomSelect'
 import { TimeIcon, StarIcon, UpArrowOrder, DownArrowOrder } from '../components/icons';
 
-
 class Posts extends Component {
 
 	state = {
@@ -40,7 +39,6 @@ class Posts extends Component {
 	render() {
 		
 		const { posts, match } = this.props
-
 		const sortedPostsList = Object.values(posts).sort(sortBy(this.state.order + this.state.sort))
 		
 		const postsList = sortedPostsList.filter(post => (match.params.category ? post.category === match.params.category : post))

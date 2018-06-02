@@ -4,10 +4,6 @@ import { fetchPost } from '../actions'
 import Post from '../components/Post'
 
 class ViewPost extends Component {
-
-	state = {
-
-  }
   
   componentDidMount() {
     const { id } = this.props.match.params
@@ -25,7 +21,6 @@ class ViewPost extends Component {
 }
 
 const mapStateToProps = ({ posts }, ownProps) => {
-  //RECHECK: Is it crazy?
   const { id } = ownProps.match.params
   return {
     post: {
