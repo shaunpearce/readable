@@ -14,7 +14,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sort-by": "^1.2.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.3",
