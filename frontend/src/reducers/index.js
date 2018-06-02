@@ -77,7 +77,6 @@ const posts = (state = initialState, action) => {
       return {
         ...state,
         [action.id]:{
-          ...state[action.id],
           deleted: true
         }
       }

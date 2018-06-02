@@ -19,10 +19,6 @@ class App extends Component {
   componentDidMount() {
     const api = process.env.REACT_APP_READABLE_API_URL || 'http://localhost:3001'
 
-    console.log(process)
-    console.log(process.env)
-    console.log(api)
-    
     const url = `${api}/categories`
     let token = localStorage.token
     if (!token) 
