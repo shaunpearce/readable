@@ -9,7 +9,7 @@ This is my version of Readable project for Udacity React Nano degree.
 4. Go back `cd ..`
 5. Go to frontend directory `cd frontend`
 6. Install npm `npm install`
-7. Run app using `npm start` (or for to watch and compile stylus styles `npm run local`)
+7. Run app using `npm start` (or to watch and compile stylus styles `npm run local`)
 
 ## Deployed to heroku
 
